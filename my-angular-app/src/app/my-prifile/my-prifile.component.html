@@ -1,0 +1,59 @@
+<body class="profile-page">
+  <nav mat-tab-nav-bar [backgroundColor]="background">
+    <a mat-tab-link></a>
+    <span mat-tab class="header" *ngIf='user'>
+      <a [routerLink]="['/', 'users-post']">
+        <mat-icon mat-list-icon style="color: seashell;">keyboard_backspace</mat-icon>
+      </a>
+      {{user.result.firstName}} {{user.result.lastName}}
+    </span>
+  </nav>
+  <div class="profile-content">
+    <div class="profile">
+      <!-- <img [src]='currentProfile' height="300" width="300" alt="Circular image"
+        class="image-raised img-fluid rounded-circle" *ngIf='currentProfile'> -->
+    
+          <img [src]='changedProfile' height="300" width="300" alt="Circular image"
+        class="image-raised img-fluid rounded-circle" *ngIf='changedProfile'>
+        
+        
+      <div class="name">
+        <h3 class="title" *ngIf='user'> <strong>{{user.result.firstName}} {{user.result.lastName}}</strong></h3>
+        <h4 *ngIf='user'>Email: {{user.result.email}}</h4><br />
+        <h4 *ngIf='user'> Address: {{user.result.address.city}},
+          {{user.result.address.state}},
+          {{user.result.address.zipcode}}
+        </h4><br />
+        <button mat-stroked-button color="primary" (click)="goToPost()">Add post</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-stroked-button color="primary" (click)="goToUpdate()">update
+          address</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-stroked-button color='primary' [disabled]='listButton'
+          (click)='listAllImages()'>Photos</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button mat-stroked-button color="primary" (click)='addImage()'>
+          <mat-icon>add_a_photo</mat-icon>
+        </button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <div *ngIf='!choseImage'>
+          <mat-grid-list cols="4" rowHeight="1:1">
+            <mat-grid-tile *ngFor='let photo of allImages'>
+
+              <a [routerLink]="['/', 'profile-photo']" [queryParams]="{fileName: photo}"><img [src]='photo'></a>
+
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+        <div *ngIf='choseImage'>
+          <label class="btn btn-default">
+            <input type="file" (change)="selectFile($event)">
+          </label><br />
+          <img [src]='selectedImgURL' height="300" width="300" *ngIf='selectedImgURL'><br />
+          <h3>{{message}}</h3><br />
+          <button mat-stroked-button color='primary' [disabled]="!selectedFiles" (click)='upload()'>upload
+            image</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-stroked-button color="primary" (click)="cancelUpload()">cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

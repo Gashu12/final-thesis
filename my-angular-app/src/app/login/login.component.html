@@ -1,0 +1,27 @@
+
+  <form [formGroup] = "loginForm" (ngSubmit)="onLogin()">
+    <mat-grid-list cols="1" rowHeight="500px">
+        <h1 class="welcome">WELCOME TO COMMUNITY CONNECTION PAGE</h1>
+        <mat-grid-tile> 
+            <div class="example-container">
+                <h1>Log In</h1>
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Email address</mat-label>
+                    <input matInput placeholder="Ex. pat@example.com"  formControlName="email">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Enter password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <p style="color: red;">{{notification}}</p>
+                <button mat-stroked-button color="primary" type="submit">Submit</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+  

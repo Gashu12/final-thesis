@@ -1,0 +1,33 @@
+<nav mat-tab-nav-bar [backgroundColor]="background">
+    <a mat-tab-link></a>
+    <span mat-tab class="header">
+        <a [routerLink]="['/', 'my-profile']">
+            <mat-icon mat-list-icon style="color: seashell;">keyboard_backspace</mat-icon>
+        </a>
+        Add-post
+    </span>
+</nav>
+
+<form [formGroup]="addpostForm" (ngSubmit)="addPost()">
+    <mat-grid-list cols="1" rowHeight="500px">
+        <mat-grid-tile>
+            <div class="example-container">
+                <h1>Add-post</h1>
+                <mat-form-field appearance="fill">
+                    <mat-label>Add your post</mat-label>
+                    <textarea matInput formControlName="post"></textarea>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select type of service</mat-label>
+                    <mat-select formControlName="service">
+                        <mat-option *ngFor="let type of services" [value]="type">{{type}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <button mat-button color="primary" type="submit">Submit</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</form>

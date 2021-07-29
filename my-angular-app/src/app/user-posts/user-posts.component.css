@@ -1,0 +1,48 @@
+.container{
+    font-size: 100%;
+    margin: auto;
+}
+.logout{
+    position:fixed;
+    right:120px;
+    top:5px;
+    
+ }
+
+ .profile{
+    position:fixed;
+    right:20px;
+    top:5px;
+ }
+
+.thumbnail{
+   position:fixed;
+   border-radius: 50%!important;
+   top:5px;
+   
+}
+
+ .header {
+    padding: 200px;
+   font-weight: bold;
+    text-align: center;
+    color:rgb(0, 119, 255);
+  }
+
+  .welcome{
+    font-weight: bold;
+    color: rgb(8, 8, 160);
+    padding-top: 30px;
+    padding-left: 400px;
+    margin-right: 0%;
+    font-family: 'Times New Roman', Times, serif;
+
+  }
+.img-fluid, .img-thumbnail {
+    max-width: 4%;
+    height: 55px;
+}
+
+.rounded-circle {
+   border-radius: 50%!important;
+}

@@ -1,0 +1,47 @@
+
+<ul *ngFor="let data of providers">
+    <div class="avatar" *ngIf='!(data.firstName === "Gashaw" && data.lastName === "Kassa")'>
+        <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg"
+            alt="Circle Image" class="img-raised rounded-circle img-fluid">
+    </div>
+    <div class='avatar' *ngIf='(data.firstName === "Gashaw" && data.lastName === "Kassa")'>
+          <img src="https://s3.amazonaws.com/finalpro.com/thumbnail-images/002e7531-3640-4184-b1b2-86c69eb75777.jpeg"
+            alt="Circle Image"
+            class="img-raised rounded-circle img-fluid">
+    </div>
+    <a [routerLink]="['/', 'user-profile', data._id] " style="text-decoration:none">
+        <strong>{{data.firstName }} {{data.lastName}}</strong>
+    </a>
+    <div class="date">
+        <p> {{data.post.createdDate|date}}</p>
+        <li> {{data.post.post}} </li>
+        <a [routerLink]="['/', 'user-post-detail', data._id, 'post', data.post._id]"
+            [state]='{"post": data.post, "fullName": data.firstName + " " + data.lastName}'
+            style="text-decoration:none">view all {{data.post.comments.length}} comments
+        </a>
+    </div>
+    <mat-divider></mat-divider>
+</ul>
+
+<span *ngIf="providers">
+    
+    <p [ngClass]="{disabled:pager.currentPage === 1}">
+        
+        <a [routerLink] (click)='paginateToNext(pager.currentPage)' [queryParams]="{ page: pager.currentPage - 1 }" style="text-decoration:none">Previous</a>
+    </p>&nbsp;
+    <p *ngFor="let page of pager.totalPages" [ngClass]="{active:pager.currentPage === page}">
+        <a [routerLink] (click)='paginateToNext(page)' [queryParams]="{ page: page }" style="text-decoration:none">{{page}}</a>
+    </p>&nbsp;
+    <p [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a [routerLink] [queryParams]="{ page: pager.currentPage + 1 }" style="text-decoration:none">Next</a>
+    </p>
+   
+</span>
+
+
+
+  
+     
+      
+ 
+ 

@@ -1,0 +1,24 @@
+<nav mat-tab-nav-bar [backgroundColor]="background" class="container">
+
+  <a mat-tab-link [routerLink]="['/users-post', 'service-provider',city ]" (click)="showHide()">service provider</a>
+  <a mat-tab-link [routerLink]="['/users-post', 'service-consumer', city]" (click)="showHide()">service consumer</a>
+
+  <a mat-tab-link (click)="logout()" class="logout">Log-out</a>
+  <a mat-tab-link (click)=" goToProfile()" class="profile">
+    <mat-icon>account_circle</mat-icon>
+  </a>
+</nav>
+
+<div *ngIf="show">
+  <h1 class="welcome" *ngIf='user'>HELLO {{user.result.firstName | uppercase }} WELCOME TO COMMUNITY CONNECTION USERS
+    POST PAGE</h1>
+  <div>
+    <img src="https://s3.amazonaws.com/finalpro.com/raw-images/6d5d3c9e76622463ffab0e23cd9b972a"
+      alt="Circle Image" class="img-raised rounded-circle img-fluid">
+  </div>
+  <div class="name">
+    <h3 class="title" *ngIf='user'> <strong>{{user.result.firstName}} {{user.result.lastName}}</strong></h3>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

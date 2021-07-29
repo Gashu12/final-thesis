@@ -1,0 +1,8 @@
+<div>
+    <img [src]='selectedImage' *ngIf='selectedImage'>
+</div>
+<h4>{{message}}</h4>
+<button mat-stroked-button color='primary' (click)='changeProfilePic()'>Make profile picture</button>
+<button mat-stroked-button color='primary' (click)='deleteThisImage()'>Delete<mat-icon>delete_sweep</mat-icon></button>
+<button mat-stroked-button color='primary' (click)='downloadImage()'>download</button>
+

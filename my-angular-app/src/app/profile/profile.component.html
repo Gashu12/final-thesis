@@ -1,0 +1,32 @@
+
+<body class="profile-page">
+    <nav mat-tab-nav-bar [backgroundColor]="background">
+      <a mat-tab-link></a>
+      <span mat-tab class="header">
+
+        <a [routerLink]="['/', 'users-post']">
+          <mat-icon mat-list-icon style="color: seashell;">keyboard_backspace</mat-icon>
+        </a>
+        {{user.result.firstName}} {{user.result.lastName}}
+
+      </span>
+    </nav>
+  
+    <div class="profile-content">
+      <div class="profile">
+        <div class="avatar">
+          <img
+            src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg"
+            alt="Circle Image" class="img-raised rounded-circle img-fluid">
+        </div>
+        <div class="name">
+          <h3 class="title"> <strong>{{user.result.firstName}} {{user.result.lastName}}</strong></h3>
+          <h4>Email: {{user.result.email}}</h4>
+          <h4> Address: {{user.result.address.city}},
+            {{user.result.address.state}},
+            {{user.result.address.zipcode}}
+          </h4>
+        </div>
+      </div>
+    </div>
+  </body>

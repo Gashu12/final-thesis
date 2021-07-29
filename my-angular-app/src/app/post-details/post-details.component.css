@@ -1,0 +1,36 @@
+.header{
+    align-self: center;
+    color: rgb(200, 211, 188);
+    font-size:150%;
+    position:fixed;  
+    padding-left: 20px;  
+}
+.post-detail{
+    padding-left: 25px;
+}
+
+.profile{
+    padding-left: 25px;
+}
+.comment{
+  
+        border: 4px solid rgb(246, 240, 240);
+        border-radius: 6px;   
+}
+
+.img-raised {
+    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+
+.rounded-circle {
+    border-radius: 50%!important;
+}
+
+.img-fluid, .img-thumbnail {
+    max-width: 4%;
+    height: auto;
+}
+
+.image{
+    margin-top: -80px;
+}

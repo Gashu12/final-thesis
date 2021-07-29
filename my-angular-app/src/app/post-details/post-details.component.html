@@ -1,0 +1,45 @@
+
+<nav mat-tab-nav-bar [backgroundColor]="background">
+    <a mat-tab-link></a>
+    <span mat-tab class="header">
+        <a [routerLink]="['/', 'users-post']">
+            <mat-icon mat-list-icon style="color: seashell;">keyboard_backspace</mat-icon>
+        </a>
+        Post-Details 
+    </span>
+</nav>
+
+<mat-list>
+    <mat-list-item>
+        <h1 mat-line>
+            <mat-icon mat-list-icon>account_circle </mat-icon>
+            <strong>{{postMsg.fullName}}</strong>
+        </h1>
+        <h1 mat-line>{{postMsg.post.createdDate|date}}</h1>
+        <h4 mat-line>{{postMsg.post.post}}</h4>
+
+    </mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list>
+
+<div class="post-detail">
+    <mat-list *ngFor='let detail of postDetail'>
+        <div class="avatar">
+            <img
+              src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg"
+              alt="Circle Image" class="img-raised rounded-circle img-fluid">
+          </div>
+        <a [routerLink]="['/', 'user-profile', detail.userId]" style="text-decoration:none">   
+            <strong>{{detail.firstName}} {{detail.lastName}}</strong>
+        </a>
+        <mat-list-item>
+            <h4 mat-line>{{detail.createdDate | date}}</h4>
+            <h4 mat-line>{{detail.comment}}</h4>
+        </mat-list-item>
+    </mat-list>
+    <form [formGroup]='commentForm' (ngSubmit)='onCommentSubmit()'>
+        <textarea cols="40" class="comment" type="text" placeholder="write your comment here"
+            formControlName='comment'></textarea>
+        <button mat-button color="primary" type="submit">submit</button>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+<nav mat-tab-nav-bar [backgroundColor]="background">
+    <a mat-tab-link></a>
+    <span mat-tab class="header">
+        <a [routerLink]="['/', 'my-profile']">
+            <mat-icon mat-list-icon style="color: seashell;">keyboard_backspace</mat-icon>
+        </a>
+        Update
+    </span>
+</nav>
+
+<form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+    <mat-grid-list cols="1" rowHeight="500px">
+        <mat-grid-tile>
+            <div class="example-container">
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>State</mat-label>
+                    <input matInput placeholder="Ex. IA" formControlName="state">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>City</mat-label>
+                    <input matInput formControlName="city">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Zipcode</mat-label>
+                    <input matInput formControlName="zipcode">
+                </mat-form-field>
+                <br>
+                <button mat-button color="primary" type="submit">Submit</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</form>
