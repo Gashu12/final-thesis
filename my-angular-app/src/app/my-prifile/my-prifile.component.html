@@ -48,7 +48,8 @@
             <input type="file" (change)="selectFile($event)">
           </label><br />
           <img [src]='selectedImgURL' height="300" width="300" *ngIf='selectedImgURL'><br />
-          <h3>{{message}}</h3><br />
+          <h3 style="color: limegreen;">{{message}}</h3><br />
+          <h3 style="color: red;">{{selectionMessage}}</h3>
           <button mat-stroked-button color='primary' [disabled]="!selectedFiles" (click)='upload()'>upload
             image</button>&nbsp;&nbsp;&nbsp;&nbsp;
           <button mat-stroked-button color="primary" (click)="cancelUpload()">cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;

@@ -22,6 +22,7 @@ export class MyPrifileComponent implements OnInit, OnDestroy {
   allImages: Array<string> = []
   myImage: string | any
   message: string | undefined
+  selectionMessage: string = ''
   imgURL: string | any
   selectedImgURL: string | any
   showHide: boolean = true
@@ -86,6 +87,8 @@ export class MyPrifileComponent implements OnInit, OnDestroy {
   cancelUpload(){
     this.selectedImgURL = ''
     this.choseImage = false
+    this.message = ''
+    this.selectionMessage = ''
   }
 
   listAllImages() {
@@ -126,10 +129,10 @@ export class MyPrifileComponent implements OnInit, OnDestroy {
           this.selectedImgURL = reader.result
         }
       } else {
-        this.message = 'please select an image up to 1MB!'
+        this.selectionMessage = 'please select an image up to 1MB!'
       }
     } else {
-      this.message = 'You are allowed to upload jpeg, jpg, or png image type only'
+      this.selectionMessage = 'You are allowed to upload jpeg, jpg, or png image type only'
     }
     console.log(this.selectedFiles)
   }
